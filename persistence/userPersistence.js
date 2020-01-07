@@ -49,6 +49,7 @@ function requestEmailVerification(socket, req){
 
 function completeUserSignUp(socket, mongoose, req){
     let userId = null;
+    console.log('completeUserSignUp req = ', req);
     if(req.username){
         User.find({ username: req.username }).then(docs => {
             if(docs.length > 0){
@@ -58,7 +59,7 @@ function completeUserSignUp(socket, mongoose, req){
                 });
             }
             else if(req.username && req.password && req.email && req.pnToken){
-                var password = Bcrypt.hashSync(password, 10);
+                var password = Bcrypt.hashSync(req.password, 10);
                 const user = new User({
                     _id : mongoose.Types.ObjectId(),
                     createDate : new Date(),
@@ -71,10 +72,11 @@ function completeUserSignUp(socket, mongoose, req){
                     userGhostIds : [],
                     userFriendIds : [],
                     ghostFriendIds : [],
+                    achievementIds : []
                 });
                 user.save().then(resUser => {
                     userId = resUser._id;
-                    socket.emit('completeUserSignUp', {
+                    socket.emit('loginUser', {
                         success : true,
                         user : resUser
                     });

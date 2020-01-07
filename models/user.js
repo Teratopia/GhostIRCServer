@@ -12,6 +12,7 @@ const userSchema = mongoose.Schema({
     userGhostIds : [String],
     userFriendIds : [String],
     ghostFriendIds : [String],
+    achievementIds : [String]
 });
 
 module.exports = mongoose.model('User', userSchema);
