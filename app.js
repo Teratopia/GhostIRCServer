@@ -27,7 +27,7 @@ const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io").listen(server);
-const port = 3000;
+const port = 1212;
 
 io.on("connection", socket => {
   console.log("a user connected :D");

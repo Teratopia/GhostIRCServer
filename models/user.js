@@ -8,11 +8,14 @@ const userSchema = mongoose.Schema({
     email : String,
     latestToken : String,
     recognizedTokens : [String],
-    blockedUserIds : [String],
+    //blockedGhostIds : [String],
+    ghostFriendIds : [String],
+    achievementIds : [String],
+    //lose
     userGhostIds : [String],
     userFriendIds : [String],
-    ghostFriendIds : [String],
-    achievementIds : [String]
+    blockedUserIds : [String],
+
 });
 
 module.exports = mongoose.model('User', userSchema);

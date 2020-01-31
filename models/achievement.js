@@ -4,7 +4,7 @@ const achievementSchema = mongoose.Schema({
     _id : mongoose.Schema.Types.ObjectId,
     title : String,
     description : String,
-    ectoVal : String
+    ectoVal : Number
 });
 
 module.exports = mongoose.model('Achievement', achievementSchema);

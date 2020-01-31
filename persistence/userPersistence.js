@@ -1,5 +1,4 @@
-
-
+const mongoose = require('mongoose');
 const User = require('../models/user');
 var nodemailer = require('nodemailer');
 const Bcrypt = require("bcryptjs");
@@ -68,9 +67,9 @@ function completeUserSignUp(socket, mongoose, req){
                     email : req.email,
                     latestToken : req.pnToken,
                     recognizedTokens : [req.pnToken],
-                    blockedUserIds : [],
-                    userGhostIds : [],
-                    userFriendIds : [],
+                    //blockedUserIds : [],
+                    //userGhostIds : [],
+                    //userFriendIds : [],
                     ghostFriendIds : [],
                     achievementIds : []
                 });
@@ -103,8 +102,10 @@ function handleLoginUserError(socket, message){
 }
 
 function loginUser(socket, mongoose, req){
+    console.log('loginUser req = ', req);
     let userId;
-    let username = req.username;
+    //for single username/email input
+    let username = req.username || req.email;
     let password = req.password;
     let pnToken = req.pnToken;
     let email = req.email;

@@ -10,6 +10,8 @@ const chatCardSchema = mongoose.Schema({
     creatorId : String,
     createDate : Date,
     text : String,
+
+    //lose
     responses : [Response.schema],
     responseRequests : [Response.schema],
     ratings : [ChatCardRating.schema],

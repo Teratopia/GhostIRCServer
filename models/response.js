@@ -9,6 +9,7 @@ const responseSchema = mongoose.Schema({
     requesterId : String,
     ownerId : String,
     text : String,
+    //lose
     ratings : [ResponseRating.schema]
 });
 

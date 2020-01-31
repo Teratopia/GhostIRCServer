@@ -7,9 +7,11 @@ const ghostSchema = mongoose.Schema({
     _id : mongoose.Schema.Types.ObjectId,
     createDate : Date,
     creatorId : String,
-    moderatorIds : [String],
     name : String,
     type : String,
+    moderatorIds : [String],
+    baseChatCardIds : [String],
+    //lose
     baseChatCards : [ChatCard.schema],
     locations : [Location.schema],
     ratings : [GhostRating.schema]
